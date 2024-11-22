@@ -7,10 +7,15 @@ export default function StudentForm({ groups, genders, onSubmit }) {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm()
+        reset,
+      } = useForm();
+      const handleSubmitForm = (data) => {
+        onSubmit(data);
+        reset();
+      }
   return (
     <>
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-2xl mx-auto capitalize p-8 rounded-xl bg-gray-950">
+    <form onSubmit={handleSubmit(handleSubmitForm)} className="max-w-2xl mx-auto capitalize p-8 rounded-xl bg-gray-950">
         <div className="flex gap-2">
             <div className="w-full">
                 <label className="label">

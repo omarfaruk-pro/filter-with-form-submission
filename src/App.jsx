@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 import { useState } from 'react';
 import './App.css'
@@ -49,7 +50,8 @@ export default function App() {
   
   return (
     <>
-      <StudentForm groups={groups} genders={genders} onSubmit={(data) => setStudents([...students, {...data, id:students.length +1}])}/>
+     
+      <StudentForm groups={groups} genders={genders} onSubmit={(data) => {setStudents([...students, {...data, id:students.length +1}])}}/>
       <DataTable 
        filtered={filtered} removeStudent={removeStudent}
        groupFilterRender={<GroupFilter handleGroupFilter={handleGroupFilter} groups={groups}/>}
